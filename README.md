@@ -7,9 +7,13 @@ npm create vite@latest
 
 npm i
 
-npm run dev
-
 npm i styled-components
+
+npm install react-router-dom
+
+# subir o projeto
+
+npm run dev
 
 # Extensões recomendadas
 
