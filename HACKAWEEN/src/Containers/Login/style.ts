@@ -78,3 +78,9 @@ export const Button = styled.button`
   animation-delay: 0.8s;
   animation-fill-mode: backwards;
 `;
+
+// Estilo para a mensagem de erro
+export const ErrorMessage = styled.p`
+  color: red; // Define a cor vermelha para a mensagem de erro
+  margin-top: 10px; // Espaço acima da mensagem
+`;
