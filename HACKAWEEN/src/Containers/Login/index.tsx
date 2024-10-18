@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Container, Title, Form, Input, Button, ErrorMessage } from './style'; 
 import { useNavigate } from 'react-router-dom';
+import { FormEvent } from 'react'; // Importa o FormEvent
 
 function Login() {
   const [email, setEmail] = useState(''); 
@@ -8,11 +9,14 @@ function Login() {
   const [error, setError] = useState(''); 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = (e: FormEvent<HTMLFormElement>) => { 
+    e.preventDefault(); 
 
     if (!email || !password) {
       setError('Por favor, preencha o email e a senha.'); 
+      return; 
     }
+
     if (email === 'a' && password === '1') {
       navigate('/body'); 
       setError(''); 
@@ -24,9 +28,9 @@ function Login() {
   return (
     <Container>
       <Title>HACKAWEEN</Title>
-      <Form>
+      <Form onSubmit={handleLogin}> 
         <Input 
-          type="email" 
+          type="text" 
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
@@ -37,7 +41,7 @@ function Login() {
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
         />
-        <Button onClick={handleLogin}>Login</Button>
+        <Button type="submit">Login</Button> 
         {error && <ErrorMessage>{error}</ErrorMessage>} 
       </Form>
     </Container>
