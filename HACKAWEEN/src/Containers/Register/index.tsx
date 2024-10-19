@@ -37,7 +37,7 @@ function Register() {
     }
 
     // Adiciona o novo usuário ao localStorage
-    users.push({ email, password, cnpj, cpf, endereco, instituicao });
+    users.push({ email, password, cnpj, cpf, endereco, instituicao, foto });
     localStorage.setItem('users', JSON.stringify(users));
 
     // Redireciona para a tela de login
