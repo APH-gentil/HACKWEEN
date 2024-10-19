@@ -1,9 +1,16 @@
-import { Container, Message } from './style';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container, Header, SiteName, Button } from './style';  // Importa os novos estilos
 
 function Body() {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Message>Bem-vindo à página Body!</Message>
+      <Header>
+        <SiteName>GreenScapes</SiteName>
+        <Button onClick={() => navigate('/login')}>Login</Button>
+      </Header>
     </Container>
   );
 }
