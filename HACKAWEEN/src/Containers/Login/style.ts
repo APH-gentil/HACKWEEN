@@ -39,6 +39,14 @@ export const Form = styled.form`
   animation: ${slideUp} 1s ease-out;
   animation-delay: 0.4s;
   animation-fill-mode: backwards;
+
+  /* Adicione um contêiner para os botões */
+  > div {
+    display: flex;
+    justify-content: space-between; /* Espaço entre os botões */
+    width: 100%; /* Largura total do contêiner */
+    margin-top: 15px; /* Espaço acima dos botões */
+  }
 `;
 
 export const Input = styled.input`
@@ -61,7 +69,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 100%;
+  width: 48%; /* Largura dos botões reduzida */
   padding: 10px;
   border-radius: 8px;
   border: none;

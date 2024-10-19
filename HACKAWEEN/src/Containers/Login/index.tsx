@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Container, Title, Form, Input, Button, ErrorMessage } from './style'; 
-import { useNavigate } from 'react-router-dom';
-import { FormEvent } from 'react'; // Importa o FormEvent
+import { useNavigate } from 'react-router-dom'; // Para navegação
+import { FormEvent } from 'react';
+import { validateUser } from '../../Bd/users';  // Importar função para validar usuário
 
 function Login() {
   const [email, setEmail] = useState(''); 
@@ -17,7 +18,8 @@ function Login() {
       return; 
     }
 
-    if (email === 'a' && password === '1') {
+    // Usar o método validateUser para verificar as credenciais
+    if (validateUser(email, password)) {
       navigate('/body'); 
       setError(''); 
     } else {
@@ -41,11 +43,15 @@ function Login() {
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
         />
-        <Button type="submit">Login</Button> 
+        {/* Envolvendo os botões em uma div */}
+        <div>
+          <Button type="submit">Login</Button> 
+          <Button type="button" onClick={() => navigate('/register')}>Registrar-se</Button> 
+        </div>
         {error && <ErrorMessage>{error}</ErrorMessage>} 
       </Form>
     </Container>
-  );
+  );  
 }
 
 export default Login;
