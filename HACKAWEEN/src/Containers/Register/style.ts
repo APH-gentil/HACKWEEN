@@ -12,7 +12,7 @@ export const Container = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 2rem;
-  color: #333;
+  color: #d4c8b3;
 `;
 
 export const Form = styled.form`
@@ -29,11 +29,19 @@ export const Input = styled.input`
   font-size: 1rem;
 `;
 
+export const Select = styled.select`
+  padding: 10px;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+`; 
+
 export const Button = styled.button`
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #333;
+  background-color: #d4c8b3;
   color: white;
   font-size: 1rem;
   cursor: pointer;
