@@ -4,7 +4,7 @@ export function initializeUsers() {
   
     // Verifica se o usuário "a" já está no localStorage e adiciona caso contrário
     if (!users.find((user: { email: string }) => user.email === 'a')) {
-      users.push({ email: 'a', password: '1' });
+      users.push({ email: 'a', password: '1', cnpj:'', cpf:''});
     }
   
     localStorage.setItem('users', JSON.stringify(users));
@@ -18,7 +18,7 @@ export function initializeUsers() {
   // Função para verificar se o login é válido
   export function validateUser(email: string, password: string) {
     const users = getUsers();
-    const user = users.find((user: { email: string; password: string }) => user.email === email && user.password === password);
+    const user = users.find((user: { email: string; password: string; cpf: string; cnpj: string; endereco: string;}) => user.email === email && user.password === password);
     return user !== undefined;
   }
   
